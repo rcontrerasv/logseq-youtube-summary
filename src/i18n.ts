@@ -21,8 +21,7 @@ export interface Translations {
   // Messages
   messages: {
     noBlockSelected: string;
-    enterVideoUrl: string;
-    operationCancelled: string;
+    pasteUrlFirst: string;
     invalidUrl: string;
     configureApiKey: string;
     extractingTranscript: string;
@@ -63,8 +62,7 @@ const translations: Record<Language, Translations> = {
     },
     messages: {
       noBlockSelected: 'No block selected. Please place cursor in a block.',
-      enterVideoUrl: '🎥 YouTube Summary\nEnter the YouTube video URL:',
-      operationCancelled: 'Operation cancelled',
+      pasteUrlFirst: 'Please paste a YouTube URL in this block first, then run /youtube-summary again',
       invalidUrl: 'Invalid YouTube URL. Must be format: youtube.com/watch?v=xxxxx or youtu.be/xxxxx',
       configureApiKey: 'Configure your API key in Settings → Plugin Settings → YouTube Summary',
       extractingTranscript: '⏳ Extracting video transcript...',
@@ -111,8 +109,7 @@ Conclusion: [Main takeaway or message from the video]`,
     },
     messages: {
       noBlockSelected: 'No hay un bloque seleccionado. Por favor, coloca el cursor en un bloque.',
-      enterVideoUrl: '🎥 YouTube Summary\nIngresa la URL del video de YouTube:',
-      operationCancelled: 'Operación cancelada',
+      pasteUrlFirst: 'Por favor, pega primero una URL de YouTube en este bloque, luego ejecuta /youtube-summary nuevamente',
       invalidUrl: 'URL de YouTube inválida. Debe ser formato: youtube.com/watch?v=xxxxx o youtu.be/xxxxx',
       configureApiKey: 'Configura tu API key en Settings → Plugin Settings → YouTube Summary',
       extractingTranscript: '⏳ Extrayendo transcripción del video...',

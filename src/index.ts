@@ -28,25 +28,14 @@ async function main() {
       // 2. Intentar extraer URL del contenido del bloque actual
       let url = extractUrlFromBlock(block.content);
 
-      // 3. Si no hay URL en el bloque, pedirla al usuario
+      // 3. Si no hay URL en el bloque, mostrar mensaje de ayuda
       if (!url) {
-        const input = await logseq.UI.showInputDialog(
-          t('messages.enterVideoUrl').split('\n')[0],
-          t('messages.enterVideoUrl').split('\n')[1],
-          {
-            placeholder: 'https://www.youtube.com/watch?v=...'
-          }
+        await logseq.UI.showMsg(
+          '📝 ' + t('messages.pasteUrlFirst'),
+          'warning',
+          { timeout: 6000 }
         );
-
-        if (!input || input.trim() === '') {
-          await logseq.UI.showMsg(t('messages.operationCancelled'), 'warning');
-          return;
-        }
-
-        url = input.trim();
-
-        // Actualizar el bloque con la URL ingresada
-        await logseq.Editor.updateBlock(block.uuid, url);
+        return;
       }
 
       // 4. Validar settings
