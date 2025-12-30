@@ -1,0 +1,39 @@
+{
+  "name": "logseq-youtube-summary",
+  "version": "0.1.0",
+  "description": "Resume videos de YouTube usando tu propia API key de LLM",
+  "main": "dist/index.html",
+  "scripts": {
+    "dev": "npm run build:js && npm run build:html && npm run watch",
+    "build": "npm run build:js:prod && npm run build:html",
+    "build:js": "esbuild src/index.ts --bundle --format=iife --outfile=dist/index.js",
+    "build:js:prod": "esbuild src/index.ts --bundle --format=iife --outfile=dist/index.js --minify",
+    "build:html": "node scripts/create-html.js",
+    "watch": "esbuild src/index.ts --bundle --format=iife --outfile=dist/index.js --watch"
+  },
+  "keywords": [
+    "logseq",
+    "youtube",
+    "summary",
+    "transcript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.0",
+    "@danielxceron/youtube-transcript": "^1.2.3",
+    "@logseq/libs": "^0.0.15",
+    "franc-min": "^6.2.0",
+    "openai": "^4.47.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "esbuild": "^0.19.8",
+    "typescript": "^5.3.3"
+  },
+  "logseq": {
+    "id": "logseq-youtube-summary",
+    "title": "YouTube Summary",
+    "icon": "./icon.png"
+  }
+}
