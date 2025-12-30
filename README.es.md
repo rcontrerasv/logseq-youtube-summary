@@ -28,6 +28,12 @@ Plugin para Logseq que resume videos de YouTube usando tu propia API key de LLM 
 - ⚙️ **Configuración Fácil**: Interfaz de configuración integrada en Logseq
 - 🎥 **Subtítulos Auto-generados**: Funciona con subtítulos auto-generados de YouTube
 
+## 🎬 Demo
+
+![YouTube Summary Demo](assets/demo.gif)
+
+*Mira el plugin en acción: pega una URL de YouTube, ejecuta `/youtube-summary`, ¡y obtén un resumen estructurado generado por IA al instante!*
+
 ## Instalación
 
 ### Modo Desarrollo
