@@ -5,6 +5,8 @@
   ### Plugin para Logseq
 
   Resúmenes inteligentes de videos de YouTube con IA
+
+  [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/rodandresv)
 </div>
 
 ---
@@ -192,6 +194,12 @@ youtube-summary/
 ## Contribuir
 
 Las contribuciones son bienvenidas. Si encuentras un bug o tienes una sugerencia, por favor abre un issue en el repositorio.
+
+## Apoya el Proyecto
+
+Si este plugin te resulta útil, considera apoyar su desarrollo:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/rodandresv)
 
 ## Licencia
 
