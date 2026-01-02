@@ -34,36 +34,13 @@ Plugin para Logseq que resume videos de YouTube usando tu propia API key de LLM 
 
 *Mira el plugin en acción: pega una URL de YouTube, ejecuta `/youtube-summary`, ¡y obtén un resumen estructurado generado por IA al instante!*
 
-## Instalación
+## 📦 Instalación
 
-### Modo Desarrollo
-
-1. **Clonar o descargar este repositorio**
-
-2. **Instalar dependencias:**
-   ```bash
-   npm install
-   ```
-
-3. **Compilar el plugin:**
-   ```bash
-   npm run build
-   ```
-
-   O para modo desarrollo con watch (recarga automática):
-   ```bash
-   npm run dev
-   ```
-
-   Esto generará los archivos necesarios en la carpeta `dist/`:
-   - `dist/index.html` - Archivo HTML que carga el plugin
-   - `dist/index.js` - Código JavaScript del plugin
-
-4. **Cargar el plugin en Logseq:**
-   - Abre Logseq
-   - Ve a `Settings` → `Advanced` → Activa `Developer mode` (ON)
-   - Ve a `...` (menú) → `Plugins` → `Load unpacked plugin`
-   - Selecciona la carpeta del proyecto (`youtube-summary`)
+1. **Abre Logseq**
+2. Ve a `...` (menú) → `Plugins` → `Marketplace`
+3. Busca **"YouTube Summary"**
+4. Haz clic en `Install`
+5. ¡El plugin estará listo para usar inmediatamente!
 
 ## Configuración
 
@@ -157,49 +134,9 @@ El plugin muestra mensajes claros para diferentes tipos de errores:
 - **Rate limit excedido**: Espera unos minutos antes de intentar de nuevo
 - **Modelo no encontrado**: Verifica que el nombre del modelo sea correcto
 
-## Desarrollo
+## 🐛 Problemas y Comentarios
 
-### Estructura del Proyecto
-
-```
-youtube-summary/
-├── package.json
-├── tsconfig.json
-├── README.md
-├── README.es.md
-├── CHANGELOG.md
-├── .gitignore
-└── src/
-    ├── index.ts          # Punto de entrada, registra comando
-    ├── settings.ts       # Settings UI y gestión de configuración
-    ├── youtube.ts        # Extracción de título, canal y transcripción
-    ├── llm.ts           # Llamadas a OpenAI y Anthropic APIs
-    ├── language.ts      # Detección de idioma
-    ├── formatter.ts     # Formateo del resumen a estructura Logseq
-    ├── i18n.ts          # Internacionalización (Inglés/Español)
-    └── types.ts         # TypeScript types/interfaces
-```
-
-### Scripts Disponibles
-
-- `npm run dev`: Compila en modo desarrollo con watch (recarga automática)
-- `npm run build`: Compila para producción (minificado)
-
-### Tecnologías Utilizadas
-
-- **TypeScript**: Lenguaje de programación
-- **@logseq/libs**: API oficial de Logseq para plugins
-- **@danielxceron/youtube-transcript**: Fork mejorado con sistema de fallback para extraer transcripciones de YouTube (incluyendo subtítulos auto-generados)
-- **franc-min**: Detección de idioma
-- **openai**: SDK oficial de OpenAI
-- **@anthropic-ai/sdk**: SDK oficial de Anthropic
-- **esbuild**: Bundler rápido para compilación
-
-> **Nota**: Usamos el fork `@danielxceron/youtube-transcript` en lugar de la librería original porque tiene un sistema de fallback que funciona con las últimas actualizaciones de YouTube (2025) y soporta subtítulos auto-generados de manera más confiable.
-
-## Contribuir
-
-Las contribuciones son bienvenidas. Si encuentras un bug o tienes una sugerencia, por favor abre un issue en el repositorio.
+¿Encontraste un bug o tienes una sugerencia? Por favor [abre un issue](https://github.com/rcontrerasv/logseq-youtube-summary/issues) en el repositorio.
 
 ## Apoya el Proyecto
 
