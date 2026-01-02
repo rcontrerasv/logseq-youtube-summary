@@ -6,3 +6,6 @@ release/
 .env
 *.tsbuildinfo
 
+# Analytics scripts (local only)
+scripts/analytics/
+
