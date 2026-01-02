@@ -1,0 +1,106 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior in YouTube Summary plugin
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the form below.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear description of what the bug is
+      placeholder: Tell us what happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Run `/youtube-summary`
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+      placeholder: I expected the plugin to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+      placeholder: Instead, the plugin...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Plugin Version
+      description: Which version of YouTube Summary are you using?
+      placeholder: e.g., v0.1.2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: llm-provider
+    attributes:
+      label: LLM Provider
+      description: Which AI provider are you using?
+      options:
+        - OpenAI
+        - Anthropic
+    validations:
+      required: true
+
+  - type: input
+    id: llm-model
+    attributes:
+      label: LLM Model
+      description: Which model are you using?
+      placeholder: e.g., gpt-4o, claude-sonnet-4-20250514
+    validations:
+      required: false
+
+  - type: input
+    id: logseq-version
+    attributes:
+      label: Logseq Version
+      description: Which version of Logseq are you using?
+      placeholder: e.g., 0.10.9
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Messages / Logs
+      description: Any error messages from the console (F12 in Logseq)
+      placeholder: Paste error messages here
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context about the problem
+      placeholder: Screenshots, video URLs that fail, etc.
+    validations:
+      required: false

@@ -134,9 +134,25 @@ El plugin muestra mensajes claros para diferentes tipos de errores:
 - **Rate limit excedido**: Espera unos minutos antes de intentar de nuevo
 - **Modelo no encontrado**: Verifica que el nombre del modelo sea correcto
 
-## 🐛 Problemas y Comentarios
+## 💬 Comentarios y Comunidad
 
-¿Encontraste un bug o tienes una sugerencia? Por favor [abre un issue](https://github.com/rcontrerasv/logseq-youtube-summary/issues) en el repositorio.
+¡Nos encantaría saber de ti! Aquí están las formas de conectarte:
+
+### 🐛 Reportar Bugs
+¿Encontraste un bug? [Crea un reporte de bug](https://github.com/rcontrerasv/logseq-youtube-summary/issues/new/choose) con pasos detallados para reproducirlo.
+
+### 💡 Solicitar Funcionalidades
+¿Tienes una idea? [Inicia una discusión](https://github.com/rcontrerasv/logseq-youtube-summary/discussions/new?category=ideas) o [envía una solicitud de funcionalidad](https://github.com/rcontrerasv/logseq-youtube-summary/issues/new/choose).
+
+### ❓ Obtener Ayuda
+- [Discusiones Q&A](https://github.com/rcontrerasv/logseq-youtube-summary/discussions/categories/q-a) - Haz preguntas
+- [Discord de Logseq](https://discord.gg/KpN4eHY) - Únete a la comunidad
+
+### 🎉 Muestra y Comparte
+¡Comparte cómo estás usando el plugin en nuestra sección [Show and Tell](https://github.com/rcontrerasv/logseq-youtube-summary/discussions/categories/show-and-tell)!
+
+### ⭐ ¿Te gusta?
+Si encuentras útil este plugin, ¡dale una estrella en GitHub!
 
 ## Apoya el Proyecto
 

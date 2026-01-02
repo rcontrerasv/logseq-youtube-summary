@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ❓ Questions & Support
+    url: https://github.com/rcontrerasv/logseq-youtube-summary/discussions/categories/q-a
+    about: Ask questions and get help from the community
+  - name: 💬 General Discussion
+    url: https://github.com/rcontrerasv/logseq-youtube-summary/discussions
+    about: General discussions about the plugin
+  - name: 🎉 Show and Tell
+    url: https://github.com/rcontrerasv/logseq-youtube-summary/discussions/categories/show-and-tell
+    about: Share how you're using YouTube Summary
+  - name: 🐛 Discord - Logseq Community
+    url: https://discord.gg/KpN4eHY
+    about: Join the official Logseq Discord community
