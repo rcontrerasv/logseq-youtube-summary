@@ -1,4 +1,4 @@
-import { VideoMetadata } from './types';
+import { VideoMetadata, TranscriptResult } from './types';
 
 /**
  * URL del Worker de Cloudflare para obtener transcripciones
@@ -51,7 +51,7 @@ export async function getVideoMetadata(videoId: string): Promise<VideoMetadata> 
 /**
  * Obtiene la transcripción usando el Worker con InnerTube API
  */
-export async function getTranscript(videoId: string): Promise<string> {
+export async function getTranscript(videoId: string): Promise<TranscriptResult> {
   try {
     console.log('🔍 Obteniendo transcripción del video...');
 
@@ -66,8 +66,13 @@ export async function getTranscript(videoId: string): Promise<string> {
       throw new Error('La transcripción está vacía o es demasiado corta');
     }
 
-    console.log(`✅ Transcripción obtenida: ${data.segments} segmentos, ${data.transcript.length} caracteres (${data.language})`);
-    return data.transcript;
+    const source = data.source === 'supadata' ? 'supadata' : 'youtube';
+    console.log(`✅ Transcripción obtenida: ${data.segments} segmentos, ${data.transcript.length} caracteres (${data.language}) [fuente: ${source}]`);
+
+    return {
+      transcript: data.transcript,
+      source
+    };
 
   } catch (error: any) {
     console.error('❌ Error al obtener transcripción:', error);

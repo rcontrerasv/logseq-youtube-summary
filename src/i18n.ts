@@ -37,6 +37,7 @@ export interface Translations {
     insertingBlocks: string;
     successfullyInserted: string;
     insertionError: string;
+    donationMessage: string;
   };
 
   // LLM Prompt
@@ -78,6 +79,7 @@ const translations: Record<Language, Translations> = {
       insertingBlocks: '📝 Inserting summary into Logseq',
       successfullyInserted: '✅ Summary inserted successfully',
       insertionError: 'Error inserting blocks',
+      donationMessage: '💝 This transcript required an external service. If you find this plugin useful, consider supporting its development at [ko-fi.com/rodandresv](https://ko-fi.com/rodandresv)',
     },
     llmPrompt: {
       systemMessage: 'You are an expert assistant at creating structured video summaries. Analyze the following YouTube video transcript and create an executive summary.',
@@ -125,6 +127,7 @@ Conclusion: [Main takeaway or message from the video]`,
       insertingBlocks: '📝 Insertando resumen en Logseq',
       successfullyInserted: '✅ Resumen insertado exitosamente',
       insertionError: 'Error al insertar bloques',
+      donationMessage: '💝 Esta transcripción requirió un servicio externo. Si el plugin te resulta útil, considera apoyar su desarrollo en [ko-fi.com/rodandresv](https://ko-fi.com/rodandresv)',
     },
     llmPrompt: {
       systemMessage: 'Eres un asistente experto en crear resúmenes estructurados de videos. Analiza la siguiente transcripción de un video de YouTube y crea un resumen ejecutivo.',

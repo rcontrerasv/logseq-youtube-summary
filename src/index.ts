@@ -70,9 +70,9 @@ async function main() {
       }
 
       // 8. Extraer transcripción
-      let transcript: string;
+      let transcriptResult;
       try {
-        transcript = await getTranscript(videoId);
+        transcriptResult = await getTranscript(videoId);
       } catch (error: any) {
         const errorMessage = error.message || 'Error desconocido';
         if (errorMessage.includes('transcript') || errorMessage.includes('subtitles')) {
@@ -82,6 +82,8 @@ async function main() {
         }
         return;
       }
+
+      const { transcript, source } = transcriptResult;
 
       // 9. Detectar idioma (solo para logging, el resumen usa el idioma de la interfaz)
       const detectedLanguage = detectLanguage(transcript);
@@ -110,8 +112,8 @@ async function main() {
         return;
       }
 
-      // 11. Formatear a bloques
-      const blocks = formatSummaryToBlocks(summaryText, metadata);
+      // 11. Formatear a bloques (incluye mensaje de donación si usó Supadata)
+      const blocks = formatSummaryToBlocks(summaryText, metadata, source);
 
       // 12. Insertar bloques hijos con jerarquía parent/child correcta
       try {

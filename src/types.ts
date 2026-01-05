@@ -35,3 +35,11 @@ export interface SummaryResult {
   conclusion: string;
 }
 
+/**
+ * Resultado de la transcripción con información de fuente
+ */
+export interface TranscriptResult {
+  transcript: string;
+  source: 'youtube' | 'supadata';
+}
+

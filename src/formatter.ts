@@ -1,4 +1,5 @@
 import { VideoMetadata } from './types';
+import { t } from './i18n';
 
 /**
  * Estructura de un bloque con su nivel jerárquico
@@ -11,8 +12,11 @@ export interface BlockWithLevel {
 /**
  * Formatea el resumen markdown del LLM a bloques estructurados de Logseq
  * Sin bullets (-) ya que Logseq los crea automáticamente
+ * @param summary - El resumen generado por el LLM
+ * @param metadata - Metadatos del video
+ * @param source - Fuente de la transcripción ('youtube' | 'supadata')
  */
-export function formatSummaryToBlocks(summary: string, metadata: VideoMetadata): BlockWithLevel[] {
+export function formatSummaryToBlocks(summary: string, metadata: VideoMetadata, source: 'youtube' | 'supadata' = 'youtube'): BlockWithLevel[] {
   const blocks: BlockWithLevel[] = [];
 
   // Bloque principal con metadata del video (nivel 0)
@@ -52,6 +56,14 @@ export function formatSummaryToBlocks(summary: string, metadata: VideoMetadata):
   if (sections.conclusion) {
     blocks.push({
       content: `**Conclusión**: ${sections.conclusion}`,
+      level: 1
+    });
+  }
+
+  // Mensaje de donación si la fuente es Supadata (nivel 1 - hijo de Video)
+  if (source === 'supadata') {
+    blocks.push({
+      content: t('messages.donationMessage'),
       level: 1
     });
   }
