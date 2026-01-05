@@ -1,6 +1,6 @@
 {
   "name": "logseq-youtube-summary",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "AI-powered YouTube video summaries for Logseq. Supports OpenAI & Anthropic with multilingual interface (EN/ES)",
   "main": "dist/index.html",
   "scripts": {
@@ -29,7 +29,6 @@
   "license": "MIT",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.20.0",
-    "@danielxceron/youtube-transcript": "^1.2.3",
     "@logseq/libs": "^0.0.15",
     "franc-min": "^6.2.0",
     "openai": "^4.47.1"
