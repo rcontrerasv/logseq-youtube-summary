@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2025-01-08
+
+### Added
+- **Multi-Provider Support**: Now supports 7 LLM providers with 18 models
+  - OpenAI: gpt-4o-mini, gpt-4o, o1-mini
+  - Anthropic: claude-sonnet-4-20250514, claude-opus-4-20250514
+  - DeepSeek: deepseek-chat, deepseek-reasoner
+  - Google Gemini: gemini-2.5-flash, gemini-2.5-pro
+  - xAI Grok: grok-3, grok-4
+  - Alibaba Qwen: qwen-turbo, qwen-plus, qwen-max
+  - Moonshot: moonshot-v1-8k, moonshot-v1-32k
+- Auto-detection of provider and API endpoint from model selection
+
+### Changed
+- Simplified settings: removed Provider selector (now auto-detected)
+- Reordered settings: Language → Model → API Key
+- Simplified API key description
+- Optimized icon.png size (3.7MB → 59KB)
+
+### Removed
+- Provider dropdown (replaced by auto-detection)
+- Custom model field (18 pre-configured models is sufficient)
+
+## [0.1.4] - 2025-01-05
+
+### Added
+- Supadata API fallback for paid transcripts
+- Donation message when external service is used
+
+## [0.1.3] - 2025-01-05
+
+### Fixed
+- CORS error when fetching YouTube transcripts
+
+## [0.1.2] - 2025-01-05
+
+### Changed
+- Minor improvements and bug fixes
+
 ## [0.1.1] - 2025-01-30
 
 ### Fixed
