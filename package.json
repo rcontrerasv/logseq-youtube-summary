@@ -1,7 +1,7 @@
 {
   "name": "logseq-youtube-summary",
-  "version": "0.1.4",
-  "description": "AI-powered YouTube video summaries for Logseq. Supports OpenAI & Anthropic with multilingual interface (EN/ES)",
+  "version": "0.1.5",
+  "description": "AI-powered YouTube video summaries for Logseq. Supports OpenAI, Anthropic, DeepSeek, Gemini, Grok, Qwen & Moonshot with multilingual interface (EN/ES)",
   "main": "dist/index.html",
   "scripts": {
     "dev": "npm run build:js && npm run build:html && npm run watch",
@@ -19,6 +19,11 @@
     "ai",
     "openai",
     "anthropic",
+    "deepseek",
+    "gemini",
+    "grok",
+    "qwen",
+    "moonshot",
     "multilingual"
   ],
   "author": "Rodrigo Contreras",

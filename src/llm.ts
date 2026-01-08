@@ -2,6 +2,7 @@ import OpenAI from 'openai';
 import Anthropic from '@anthropic-ai/sdk';
 import { PluginSettings } from './types';
 import { getTranslations } from './i18n';
+import { getProviderConfig } from './settings';
 
 /**
  * Genera el prompt estructurado para el LLM usando traducciones
@@ -22,14 +23,19 @@ ${transcript}`;
 }
 
 /**
- * Genera resumen usando OpenAI API
+ * Genera resumen usando OpenAI SDK (compatible con múltiples proveedores)
+ * Soporta: OpenAI, DeepSeek, Grok, Gemini, Qwen, Moonshot
  */
-async function generateWithOpenAI(
+async function generateWithOpenAICompatible(
   transcript: string,
-  settings: PluginSettings
+  settings: PluginSettings,
+  providerName: string
 ): Promise<string> {
+  const config = getProviderConfig(settings.provider);
+
   const openai = new OpenAI({
     apiKey: settings.apiKey,
+    baseURL: config.baseURL,
     dangerouslyAllowBrowser: true // Seguro en Logseq: las API keys se almacenan localmente
   });
 
@@ -48,25 +54,25 @@ async function generateWithOpenAI(
 
     const content = response.choices[0]?.message?.content;
     if (!content) {
-      throw new Error('La respuesta de OpenAI está vacía');
+      throw new Error(`La respuesta de ${providerName} está vacía`);
     }
 
     return content.trim();
   } catch (error: any) {
     // Manejo específico de errores HTTP
     if (error.status === 401) {
-      throw new Error('API key inválida. Verifica tu key en settings.');
+      throw new Error(`API key inválida para ${providerName}. Verifica tu key en settings.`);
     }
     if (error.status === 429) {
-      throw new Error('Límite de rate excedido. Espera unos minutos antes de intentar de nuevo.');
+      throw new Error(`Límite de rate excedido en ${providerName}. Espera unos minutos antes de intentar de nuevo.`);
     }
     if (error.status === 404) {
-      throw new Error(`Modelo "${settings.model}" no encontrado. Verifica que el nombre del modelo sea correcto.`);
+      throw new Error(`Modelo "${settings.model}" no encontrado en ${providerName}. Verifica que el nombre del modelo sea correcto.`);
     }
-    
+
     // Error genérico con mensaje específico
     const errorMessage = error.message || 'Error desconocido';
-    throw new Error(`Error al generar resumen con OpenAI: ${errorMessage}`);
+    throw new Error(`Error al generar resumen con ${providerName}: ${errorMessage}`);
   }
 }
 
@@ -141,10 +147,27 @@ export async function generateSummary(
 
   // Llamar al proveedor correspondiente
   switch (settings.provider) {
-    case 'openai':
-      return await generateWithOpenAI(transcript, settings);
     case 'anthropic':
       return await generateWithAnthropic(transcript, settings);
+
+    case 'openai':
+      return await generateWithOpenAICompatible(transcript, settings, 'OpenAI');
+
+    case 'deepseek':
+      return await generateWithOpenAICompatible(transcript, settings, 'DeepSeek');
+
+    case 'grok':
+      return await generateWithOpenAICompatible(transcript, settings, 'Grok (xAI)');
+
+    case 'gemini':
+      return await generateWithOpenAICompatible(transcript, settings, 'Gemini (Google)');
+
+    case 'qwen':
+      return await generateWithOpenAICompatible(transcript, settings, 'Qwen (Alibaba)');
+
+    case 'moonshot':
+      return await generateWithOpenAICompatible(transcript, settings, 'Moonshot (Kimi)');
+
     default:
       throw new Error(`Proveedor no soportado: ${settings.provider}`);
   }

@@ -10,8 +10,6 @@ export interface Translations {
   settings: {
     language: string;
     languageDescription: string;
-    provider: string;
-    providerDescription: string;
     apiKey: string;
     apiKeyDescription: string;
     model: string;
@@ -54,12 +52,10 @@ const translations: Record<Language, Translations> = {
     settings: {
       language: 'Language',
       languageDescription: 'Choose interface language. "Auto" detects from Logseq settings.',
-      provider: 'LLM Provider',
-      providerDescription: 'Select the LLM provider to use',
       apiKey: 'API Key',
-      apiKeyDescription: 'Enter your API key. Get your key at: OpenAI (https://platform.openai.com/api-keys) or Anthropic (https://console.anthropic.com/settings/keys)',
+      apiKeyDescription: 'Enter API key for your selected model. OpenAI: platform.openai.com | Anthropic: console.anthropic.com | DeepSeek: platform.deepseek.com | Gemini: aistudio.google.com | Grok: console.x.ai | Qwen: dashscope.console.aliyun.com | Moonshot: platform.moonshot.cn',
       model: 'Model',
-      modelDescription: 'OpenAI: gpt-4o-mini (fast), gpt-4o (recommended), gpt-4-turbo | Anthropic: claude-sonnet-4-20250514 (recommended), claude-opus-4-20250514. Enter exact model name.',
+      modelDescription: 'Select a model from any provider. The API endpoint is auto-detected based on the model prefix.',
     },
     messages: {
       noBlockSelected: 'No block selected. Please place cursor in a block.',
@@ -102,12 +98,10 @@ Conclusion: [Main takeaway or message from the video]`,
     settings: {
       language: 'Idioma',
       languageDescription: 'Elige el idioma de la interfaz. "Auto" detecta desde la configuración de Logseq.',
-      provider: 'Proveedor de LLM',
-      providerDescription: 'Selecciona el proveedor de LLM que deseas utilizar',
       apiKey: 'API Key',
-      apiKeyDescription: 'Ingresa tu clave de API. Obtén tu key en: OpenAI (https://platform.openai.com/api-keys) o Anthropic (https://console.anthropic.com/settings/keys)',
+      apiKeyDescription: 'Ingresa la API key del modelo seleccionado. OpenAI: platform.openai.com | Anthropic: console.anthropic.com | DeepSeek: platform.deepseek.com | Gemini: aistudio.google.com | Grok: console.x.ai | Qwen: dashscope.console.aliyun.com | Moonshot: platform.moonshot.cn',
       model: 'Modelo',
-      modelDescription: 'OpenAI: gpt-4o-mini (rápido), gpt-4o (recomendado), gpt-4-turbo | Anthropic: claude-sonnet-4-20250514 (recomendado), claude-opus-4-20250514. Escribe el nombre exacto.',
+      modelDescription: 'Selecciona un modelo de cualquier proveedor. El endpoint se detecta automáticamente según el prefijo del modelo.',
     },
     messages: {
       noBlockSelected: 'No hay un bloque seleccionado. Por favor, coloca el cursor en un bloque.',

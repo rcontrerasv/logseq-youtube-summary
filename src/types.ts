@@ -1,9 +1,15 @@
 /**
- * Configuración del plugin almacenada por el usuario
+ * Proveedores de LLM soportados
+ */
+export type LLMProvider = 'openai' | 'anthropic' | 'deepseek' | 'grok' | 'gemini' | 'qwen' | 'moonshot';
+
+/**
+ * Configuración del plugin
+ * Nota: provider se detecta automáticamente basado en el modelo seleccionado
  */
 export interface PluginSettings {
   language: 'auto' | 'en' | 'es';
-  provider: 'openai' | 'anthropic';
+  provider: LLMProvider; // Detectado automáticamente según el modelo
   apiKey: string;
   model: string;
 }
