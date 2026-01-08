@@ -9,3 +9,9 @@ release/
 # Analytics scripts (local only)
 scripts/analytics/
 
+# Cloudflare Worker (deployed separately)
+cloudflare-worker.js
+
+# Release zip files
+*.zip
+
