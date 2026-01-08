@@ -15,3 +15,6 @@ cloudflare-worker.js
 # Release zip files
 *.zip
 
+# Marketplace fork (local only)
+marketplace/
+
