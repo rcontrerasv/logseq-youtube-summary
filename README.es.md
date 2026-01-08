@@ -13,7 +13,7 @@
 
 ## 📝 Descripción
 
-Plugin para Logseq que resume videos de YouTube usando tu propia API key de LLM (OpenAI o Anthropic). Extrae automáticamente la transcripción del video, detecta el idioma y genera un resumen estructurado que se inserta como bloques hijos en tu página de Logseq.
+Plugin para Logseq que resume videos de YouTube usando tu propia API key de LLM. Soporta 7 proveedores: OpenAI, Anthropic, DeepSeek, Google Gemini, xAI Grok, Alibaba Qwen y Moonshot. Extrae automáticamente la transcripción del video, detecta el idioma y genera un resumen estructurado que se inserta como bloques hijos en tu página de Logseq.
 
 ## ✨ Características
 
@@ -21,11 +21,11 @@ Plugin para Logseq que resume videos de YouTube usando tu propia API key de LLM 
 - 🎬 **Diálogo Interactivo**: Pide la URL automáticamente cuando ejecutas el comando
 - ⚡ **Comando Slash Rápido**: Solo escribe `/youtube-summary` y listo
 - 📝 **Extracción Automática**: Obtiene transcripciones de YouTube sin esfuerzo
-- 🤖 **Soporte Multi-LLM**: Funciona con OpenAI (GPT-4o, GPT-4o-mini, GPT-4-turbo) y Anthropic (Claude Sonnet 4, Claude Opus 4)
+- 🤖 **Soporte Multi-LLM**: 7 proveedores con 18 modelos - OpenAI, Anthropic, DeepSeek, Gemini, Grok, Qwen, Moonshot
 - 📊 **Resúmenes Estructurados**: Organizados con tema principal, puntos clave y conclusión
 - 🎯 **Jerarquía Inteligente**: Crea relaciones padre-hijo correctas entre bloques en Logseq
-- 🔄 **Cambio Automático de Modelo**: El modelo se actualiza automáticamente al cambiar de proveedor
-- ⚙️ **Configuración Fácil**: Interfaz de configuración integrada en Logseq
+- 🔄 **Auto-Detección**: Proveedor y endpoint de API detectados automáticamente según el modelo seleccionado
+- ⚙️ **Configuración Fácil**: Solo selecciona un modelo e ingresa tu API key
 - 🎥 **Subtítulos Auto-generados**: Funciona con subtítulos auto-generados de YouTube
 
 ## 🎬 Demo
@@ -46,30 +46,31 @@ Plugin para Logseq que resume videos de YouTube usando tu propia API key de LLM 
 
 ### Obtener API Keys
 
-Antes de usar el plugin, necesitas configurar una API key:
+Antes de usar el plugin, necesitas una API key del proveedor que elijas:
 
-#### OpenAI
-1. Ve a [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-2. Inicia sesión o crea una cuenta
-3. Haz clic en "Create new secret key"
-4. Copia la key (solo se muestra una vez)
-
-#### Anthropic
-1. Ve a [https://console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)
-2. Inicia sesión o crea una cuenta
-3. Haz clic en "Create Key"
-4. Copia la key
+| Proveedor | Obtener API Key |
+|-----------|-----------------|
+| **OpenAI** | [platform.openai.com/api-keys](https://platform.openai.com/api-keys) |
+| **Anthropic** | [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys) |
+| **DeepSeek** | [platform.deepseek.com](https://platform.deepseek.com) |
+| **Google Gemini** | [aistudio.google.com](https://aistudio.google.com) |
+| **xAI Grok** | [console.x.ai](https://console.x.ai) |
+| **Alibaba Qwen** | [dashscope.console.aliyun.com](https://dashscope.console.aliyun.com) |
+| **Moonshot** | [platform.moonshot.cn](https://platform.moonshot.cn) |
 
 ### Configurar el Plugin
 
 1. En Logseq, ve a `Settings` → `Plugins` → `YouTube Summary`
 2. **Idioma**: Elige el idioma de la interfaz o "Auto" para detectar desde la configuración de Logseq
-3. **Proveedor de LLM**: Selecciona tu proveedor (OpenAI o Anthropic)
-   - 💡 El modelo se actualizará automáticamente al cambiar de proveedor
-4. **API Key**: Pega tu API key en el campo correspondiente
-5. **Modelo** (Opcional): Cambia el modelo si deseas usar uno diferente:
-   - **OpenAI**: `gpt-4o-mini` (rápido), `gpt-4o` (recomendado), `gpt-4-turbo`
-   - **Anthropic**: `claude-sonnet-4-20250514` (recomendado), `claude-opus-4-20250514`
+3. **Modelo**: Selecciona entre 18 modelos disponibles (el proveedor se auto-detecta):
+   - **OpenAI**: `gpt-4o-mini`, `gpt-4o`, `o1-mini`
+   - **Anthropic**: `claude-sonnet-4-20250514`, `claude-opus-4-20250514`
+   - **DeepSeek**: `deepseek-chat`, `deepseek-reasoner`
+   - **Gemini**: `gemini-2.5-flash`, `gemini-2.5-pro`
+   - **Grok**: `grok-3`, `grok-4`
+   - **Qwen**: `qwen-turbo`, `qwen-plus`, `qwen-max`
+   - **Moonshot**: `moonshot-v1-8k`, `moonshot-v1-32k`
+4. **API Key**: Pega tu API key del proveedor del modelo seleccionado
 
 ## 🚀 Uso
 
@@ -119,8 +120,8 @@ El plugin soporta los siguientes formatos de URL de YouTube:
 ## Limitaciones
 
 - ⚠️ **Solo videos con transcripción**: El plugin solo funciona con videos que tengan subtítulos disponibles (incluyendo auto-generados). Si un video no tiene transcripción, verás un mensaje de error.
-- ⚠️ **Requiere API key**: Necesitas una API key válida de OpenAI o Anthropic para usar el plugin.
-- ⚠️ **Costos de API**: El uso de las APIs de LLM puede generar costos según tu plan. Revisa los precios en las páginas oficiales de OpenAI y Anthropic.
+- ⚠️ **Requiere API key**: Necesitas una API key válida de uno de los proveedores soportados.
+- ⚠️ **Costos de API**: El uso de las APIs de LLM puede generar costos según tu plan. Revisa los precios en la página oficial de cada proveedor.
 - ⚠️ **Rate limits**: Las APIs tienen límites de uso. Si excedes el límite, deberás esperar antes de intentar de nuevo.
 
 ## Manejo de Errores
